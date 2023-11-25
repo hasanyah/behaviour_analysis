@@ -152,7 +152,7 @@ func main() {
 	app := fiber.New()
 	app.Get("/data", getData)
 	app.Get("/alldata", getAllData)
-	app.Post("/data", postData)
+	app.Post("/event/submit", postData)
 
 	connectDB()
 
