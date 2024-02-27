@@ -11,7 +11,6 @@ import (
 
 	"github.com/go-playground/validator"
 	"github.com/gofiber/fiber/v2"
-	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/bsontype"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -35,12 +34,7 @@ type EventLog struct {
 }
 
 func envMongoURI() string {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
-	return os.Getenv("MONGOURI")
+	return os.Getenv("MONGO_URI")
 }
 
 func connectDB() *mongo.Client {
